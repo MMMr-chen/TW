@@ -20,7 +20,7 @@ public class PromotionStrategy {
     }
     public double promotionCaculate(CartItem cartItem,double price){
         cartItem.setTempprice(price);
-        double subtotal=0;
+        double subtotal=price*cartItem.getCount();
         getPromotionList(cartItem);
         for (Promotion promotion:promotionList){
             subtotal=promotion.apply(cartItem);
