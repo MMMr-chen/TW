@@ -18,9 +18,12 @@ public class FileInputTest {
     }
     @Test
     public void getCorrectInputTest() throws IOException {
-        File file=new File("");
-        fileInput.readFile("/git/Tw-PosMachine/src/test/resources/cartlist.txt");
+        fileInput.readFile("src/test/resources/cartlist");
         List<String> list=fileInput.getList();
         assertThat(list.size(),is(3));
+        assertThat(list.get(0),is("ITEM000001-3"));
+        assertThat(list.get(1),is("ITEM000003-2"));
+        assertThat(list.get(2),is("ITEM000005-2"));
+
     }
 }
