@@ -11,7 +11,8 @@ public class GameState {
     public static String judgeState(int precount,String result){
         if (result.equals("4A0B")){
             System.out.println("Congratulations!");
-            return "Win";}
+            return "Win";
+        }
         else if (--precount==0){
             System.out.println("Game Over");
             return  "Lose";
