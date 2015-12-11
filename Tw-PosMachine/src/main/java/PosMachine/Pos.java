@@ -33,14 +33,14 @@ public class Pos {
         secondHalfPromMap=new SecondHalfParser().parser(fileInput.getList());
         promotionStrategy=new PromotionStrategy(discountPromotionMap,secondHalfPromMap);
     }
-    public void caculate() throws Exception {
+    public double caculate() throws Exception {
         double total=0;
         for (CartItem cartItem:cartItemList){
             double price=queryItemPrice(cartItem.getBarcode());
             total+=promotionStrategy.promotionCaculate(cartItem,price);
 
         }
-        System.out.println(total);
+        return total;
     }
     private double queryItemPrice(String barcode) throws Exception {
         for (Item item : itemList) {

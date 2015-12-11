@@ -29,6 +29,7 @@ public class PromotionStrategy {
     }
 
     private List<Promotion> getPromotionList(CartItem cartItem) {
+        promotionList.clear();
         String barcode=cartItem.getBarcode();
         if (discountPromotionMap.containsKey(barcode)){
             promotionList.add(discountPromotionMap.get(barcode));

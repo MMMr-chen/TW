@@ -12,6 +12,7 @@ public class FileInput implements UserInput {
     public void readFile(String path) throws IOException {
         BufferedReader bufferedReader=new BufferedReader(new FileReader(path));
         String line;
+        inputList.clear();
         while ((line=bufferedReader.readLine())!=null){
             inputList.add(line);
         }
