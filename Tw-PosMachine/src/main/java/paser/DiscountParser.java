@@ -17,4 +17,9 @@ public class DiscountParser extends PromotionParser<DiscountPromotion> {
     protected DiscountPromotion parserLine(String line) {
         return new DiscountPromotion(Integer.parseInt(line.split(":")[1]));
     }
+
+    @Override
+    public Pattern getPattern() {
+        return pattern;
+    }
 }

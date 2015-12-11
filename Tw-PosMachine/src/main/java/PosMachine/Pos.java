@@ -21,7 +21,7 @@ public class Pos {
     private Map<String, DiscountPromotion> discountPromotionMap;
     private Map<String , SecondHalfProm> secondHalfPromMap;
     private PromotionStrategy promotionStrategy;
-    public void loaddata(String itempath,String cartpath,String dispath,String secpropath) throws IOException {
+    public void loaddata(String itempath,String cartpath,String dispath,String secpropath) throws Exception {
         FileInput fileInput=new FileInput();
         fileInput.readFile(itempath);
         itemList=new ItemParser().parser(fileInput.getList());

@@ -6,8 +6,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 public abstract class PromotionParser<T> {
-    private Pattern pattern;
-    public Map<String,T> parser(List<String> input){
+    public Map<String,T> parser(List<String> input) throws Exception {
         Map<String,T> result=new HashMap<String,T>();
         for (String line:input){
             validateInput(line);
@@ -18,15 +17,13 @@ public abstract class PromotionParser<T> {
 
     protected abstract String parserLineCode(String line);
 
-    private void validateInput(String line) {
+    private void validateInput(String line) throws Exception {
         if (!getPattern().matcher(line).matches()) {
-            throw new IllegalArgumentException("invalid input format");
+            throw new Exception("invalid input");
         }
     }
 
     protected abstract T parserLine(String line);
 
-    public Pattern getPattern() {
-        return pattern;
-    }
+    public abstract Pattern getPattern();
 }

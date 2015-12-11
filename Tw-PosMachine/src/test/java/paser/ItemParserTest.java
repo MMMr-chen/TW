@@ -18,20 +18,20 @@ public class ItemParserTest {
         itemParser=new ItemParser();
     }
     @Test
-    public void shouldGetOneCartItemTest(){
+    public void shouldGetOneCartItemTest() throws Exception {
         List<String> list=asList("ITEM0001:2");
         List<Item> itemList=itemParser.parser(list);
         assertThat(itemList.size(),is(1));
         assertThat(itemList.get(0).getBarcode(),is("ITEM0001"));
         assertThat(itemList.get(0).getPrice(),is(2d));
     }
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowExceptionTest(){
+    @Test(expected = Exception.class)
+    public void shouldThrowExceptionTest() throws Exception {
         List<String > list=asList("IT123809aslj");
         itemParser.parser(list);
     }
     @Test
-    public void shouldGetMultipleCartItemTest(){
+    public void shouldGetMultipleCartItemTest() throws Exception {
         List<String> list=asList("ITEM0001:2","ITEM0003:2","ITEM0005:4");
         List<Item> itemList=itemParser.parser(list);
         assertThat(itemList.size(),is(3));
